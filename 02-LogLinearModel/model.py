@@ -12,9 +12,9 @@ class LogLinear:
         self.reg = reg
         self.momentum = momentum
 
-        w_init = 0.1 / input_channel
+        w_init = (3 / input_channel * output_channel) ** .5
         random.seed(seed)
-        self.w = [[random.random() * w_init for i in range(input_channel)] for j in range(output_channel)]
+        self.w = [[(random.random() - 0.5) * 2 * w_init for i in range(input_channel)] for j in range(output_channel)]
         self.v = [[0.0 for i in range(input_channel)] for j in range(output_channel)]
 
     def forward(self, features_lst):
@@ -22,7 +22,7 @@ class LogLinear:
         for features in features_lst:
             scores = []
             for c in range(self.output_channel):
-                scores.append(sum([i * self.w[c][i] for i in features]))
+                scores.append(sum([self.w[c][i] for i in features]))
             scores = softmax(scores)
             scores_lst.append(scores)
         y_lst = [argmax(scores) for scores in scores_lst]

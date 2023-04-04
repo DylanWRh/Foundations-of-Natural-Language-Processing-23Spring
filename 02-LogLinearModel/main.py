@@ -1,17 +1,17 @@
 from utils import get_features, _shuffle
 from model import LogLinear
-import argparse
+import argparse, time
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--learning_rate',      type=float, default=0.001)
 parser.add_argument('--output_channel',     type=int,   default=20)
-parser.add_argument('--input_channel',      type=int,   default=20000)
+parser.add_argument('--input_channel',      type=int,   default=60000)
 parser.add_argument('--batch_size',         type=int,   default=200)
-parser.add_argument('--n_epochs',           type=int,   default=5)
+parser.add_argument('--n_epochs',           type=int,   default=10)
 parser.add_argument('--has_reg',            type=bool,  default=True)
-parser.add_argument('--regularization',     type=float, default=1e-6)
+parser.add_argument('--regularization',     type=float, default=1e-3)
 parser.add_argument('--has_momentum',       type=bool,  default=True)
-parser.add_argument('--momentum',           type=float, default=0.9)
+parser.add_argument('--momentum',           type=float, default=0.99)
 parser.add_argument('--seed',               type=int,   default=42)
 args = parser.parse_args()
 
@@ -44,6 +44,7 @@ best_acc_epoch = 0
 best_micro_epoch = 0
 best_macro_epoch = 0
 
+stime = time.time()
 # with open('result.txt', 'w') as f:
 for i in range(args.n_epochs):
     train_features, train_labels = _shuffle(train_features, train_labels)
@@ -86,3 +87,5 @@ for i in range(args.n_epochs):
     #     best_micro = {best_micro}, epoch = {best_micro_epoch}
     #     best_macro = {best_macro}, epoch = {best_macro_epoch}\n'''
     # )
+
+print(f'Total time consumption: {time.time() - stime}')
