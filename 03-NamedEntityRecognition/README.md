@@ -13,3 +13,5 @@ If you have difficulties on starting from scratch, we present a [code template](
 Run `train.py` to train a model.
 
 Run `main.py` to do inference.
+
+[Report](./report.pdf) for this assignment.
