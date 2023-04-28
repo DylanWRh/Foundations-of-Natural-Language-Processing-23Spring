@@ -8,4 +8,3 @@ If you have difficulties on starting from scratch, we present a [code template](
 
 [Grading criteria](./Grading-Criteria.png) is also presented.
 
-## My Work
