@@ -8,3 +8,8 @@ If you have difficulties on starting from scratch, we present a [code template](
 
 [Grading criteria](./Grading-Criteria.png) is also presented.
 
+## My Work
+
+Run `train.py` to train a model.
+
+Run `main.py` to do inference.
