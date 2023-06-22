@@ -180,16 +180,27 @@ action_pred = ["S" if p == self.parser.n_trans - 1 else ("LA" if 0 <= p < self.p
 以下是一个句子的parsing结果。
 原句
 ``The 49 stock specialist firms on the Big Board floor -- the buyers and sellers of last resort who ``
+
 ``were criticized after the 1987 crash -- once again could n't handle the selling pressure .``
+
 Ground Truth
 ``(5, 'det') (5, 'nummod') (5, 'compound') (5, 'compound') (31, 'nsubj') (10, 'case') (10, 'det') ``
+
 ``(10, 'compound') (10, 'compound') (5, 'nmod') (5, 'punct') (13, 'det') (5, 'dep') (13, 'cc')``
+
 ``(13, 'conj') (18, 'case') (18, 'amod') (13, 'nmod') (21, 'nsubjpass') (21, 'auxpass') (13, 'acl:relcl')``
+
 ``(25, 'case') (25, 'det') (25, 'nummod') (21, 'nmod') (5, 'punct') (28, 'advmod') (31, 'advmod') (31, 'aux') ``
+
 ``(31, 'neg') (0, 'root') (34, 'det') (34, 'compound') (31, 'dobj') (31, 'punct')``
+
 预测结果
 ``(5, 'det') (5, 'nummod') (5, 'compound') (5, 'compound') (0, 'root') (10, 'case') (10, 'det') ``
+
 ``(10, 'compound') (10, 'compound') (5, 'nmod') (5, 'punct') (13, 'det') (31, 'nsubj') (13, 'cc') ``
+
 ``(13, 'conj') (18, 'case') (18, 'amod') (13, 'nmod') (21, 'nsubjpass') (21, 'auxpass') (18, 'acl:relcl') ``
+
 ``(25, 'case') (25, 'det') (25, 'nummod') (21, 'nmod') (31, 'punct') (28, 'advmod') (31, 'advmod') (31, 'aux') ``
+
 ``(31, 'neg') (5, 'dep') (34, 'det') (34, 'compound') (31, 'dobj') (5, 'punct')``
